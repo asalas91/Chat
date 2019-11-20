@@ -3,8 +3,9 @@
 <b>Amigos</b>
 <ng-container *ngFor="let user of friends | search: query; let i = index;">
     <div>
+        <img src="../../assets/img/{{user.status}}.png" alt="">
         <a routerLink="/conversation/{{user.uid}}">
-            {{i}}. {{user.nick}} - {{user.email}}
+             {{i}}. {{user.nick}} - {{user.email}}
         </a>
     </div>
 </ng-container>
