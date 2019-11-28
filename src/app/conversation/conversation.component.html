@@ -1,9 +1,21 @@
-<p>
-	{{friends | json}}
-</p>
-<p>
-	{{price | number: '1.5-5'}}
-</p>
-<p>
-	{{today | date: 'fullDate' }}
-</p>
+<div class="conversationContainer">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-3">
+				<img src="/assets/img/online.png" class="imgConversation">
+				<br />
+				<img src="/assets/img/offline.png" class="imgConversation marto205">
+			</div>
+			<div class="col-md-9">
+				<div class="ml-3 mt-3">
+					<span class="">{{friend.nick}}</span>
+					<div class="conversation">
+						You: Hola, cómo estas
+					</div>
+					<hr>
+					<textarea type="text" class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
