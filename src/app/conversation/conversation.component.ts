@@ -17,13 +17,12 @@ export class ConversationComponent implements OnInit {
 
   constructor(private activatedRoute: ActivatedRoute,
               private userService: UserService) {
-    this.friendId = this.activatedRoute.snapshot.params['uid'];
-    console.log('friendId', this.friendId);
+    this.friendId = parseInt(this.activatedRoute.snapshot.params['uid']);
+
     this.friends = this.userService.getFriends();
     this.friend = this.friends.find((record) => {
-      return record.uid = this.friendId;
+      return record.uid === this.friendId;
     });
-    console.log('this.friend: ', this.friend);
   }
 
   ngOnInit() {

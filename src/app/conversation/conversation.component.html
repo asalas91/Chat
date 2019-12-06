@@ -8,10 +8,23 @@
 			</div>
 			<div class="col-md-9">
 				<div class="ml-3 mt-3">
-					<span class="">{{friend.nick}}</span>
+					<b class="">{{friend.nick}} </b> <span>({{friend.status}})</span>
+					<br>
+					<hr />
 					<div class="conversation">
-						You: Hola, cómo estas
+						{{friend.nick}} dice:
+						<hr />
+						Lorem ipsum dolor, sit amet consectetur adipisicing elit. Qui culpa ab cumque laborum aut necessitatibus, velit nulla hic facere doloremque accusantium! Quia maiores placeat repellat error? Similique alias dignissimos fugiat?
+						<hr />
+						<span class="date">Enviado: {{today | date:'shortTime'}}</span>
 					</div>
+					<!-- <div class="conversationUser">
+						{{friend.nick}} dice:
+						<hr />
+						Lorem ipsum dolor, sit amet consectetur adipisicing elit. Qui culpa ab cumque laborum aut necessitatibus, velit nulla hic facere doloremque accusantium! Quia maiores placeat repellat error? Similique alias dignissimos fugiat?
+						<hr />
+						<span class="date">Enviado: {{today | date:'shortTime'}}</span>
+					</div> -->
 					<hr>
 					<textarea type="text" class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
 				</div>
