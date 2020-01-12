@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { User } from '../interfaces/user';
 import { UserService } from '../services/user.service';
+import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 
 @Component({
   selector: 'app-conversation',
@@ -10,20 +11,21 @@ import { UserService } from '../services/user.service';
 })
 export class ConversationComponent implements OnInit {
   friendId: any;
-  friends: User[];
   friend: User;
-  price: number = 78.32323942;
-  today: any = Date.now();
 
-  constructor(private activatedRoute: ActivatedRoute,
-              private userService: UserService) {
-    this.friendId = parseInt(this.activatedRoute.snapshot.params['uid']);
-
-    this.friends = this.userService.getFriends();
-    this.friend = this.friends.find((record) => {
-      return record.uid === this.friendId;
-    });
-  }
+  constructor(
+    private activatedRoute: ActivatedRoute,
+    private userService: UserService
+    ) {
+      this.friendId = this.activatedRoute.snapshot.params['uid'];
+      console.log('this.friendId :', this.friendId);
+      this.userService.getUserById(this.friendId).valueChanges().subscribe((data: User) => {
+        console.log('data :', data);
+        this.friend = data;
+      }, (error) => {
+        console.log('Error :', error);
+      });
+    }
 
   ngOnInit() {
   }
