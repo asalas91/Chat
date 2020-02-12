@@ -1,1 +1,34 @@
-<p>conversation works!</p>
+<div class="conversationContainer">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-3">
+				<img src="/assets/img/online.png" class="imgConversation">
+				<br />
+				<img src="/assets/img/offline.png" class="imgConversation marto205">
+			</div>
+			<div class="col-md-9">
+				<div class="ml-3 mt-3">
+					<b class="">{{friend.nick}} </b>
+					<br>
+					<hr />
+					<div class="conversation">
+						{{friend.nick}} dice:
+						<hr />
+						Lorem ipsum dolor, sit amet consectetur adipisicing elit. Qui culpa ab cumque laborum aut necessitatibus, velit nulla hic facere doloremque accusantium! Quia maiores placeat repellat error? Similique alias dignissimos fugiat?
+						<hr />
+						<span class="date">Enviado: {{today | date:'shortTime'}}</span>
+					</div>
+					<!-- <div class="conversationUser">
+						{{friend.nick}} dice:
+						<hr />
+						Lorem ipsum dolor, sit amet consectetur adipisicing elit. Qui culpa ab cumque laborum aut necessitatibus, velit nulla hic facere doloremque accusantium! Quia maiores placeat repellat error? Similique alias dignissimos fugiat?
+						<hr />
+						<span class="date">Enviado: {{today | date:'shortTime'}}</span>
+					</div> -->
+					<hr>
+					<textarea type="text" class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

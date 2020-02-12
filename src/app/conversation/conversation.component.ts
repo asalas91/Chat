@@ -1,31 +1,31 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { User } from '../interfaces/user';
+import { UserService } from '../services/user.service';
+import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 
 @Component({
   selector: 'app-conversation',
   templateUrl: './conversation.component.html',
-  styleUrls: ['./conversation.component.sass']
+  styleUrls: ['./conversation.component.scss']
 })
 export class ConversationComponent implements OnInit {
   friendId: any;
-  friends: User[];
   friend: User;
-  constructor(private activatedRoute: ActivatedRoute) {
-    this.friendId = this.activatedRoute.snapshot.params['uid'];
-    console.log(this.friendId);
 
-    const users: User[] = [
-      {nick: 'Eduardo', subnick: 'Mi mensaje personal', age: 28, email: 'eduardo@platzi.com', friend: true, uid: 1},
-      {nick: 'Yuliana', subnick: 'Mi mensaje personal', age: 25, email: 'yuliana@platzi.com', friend: true, uid: 2},
-      {nick: 'Freddy', subnick: 'Mi mensaje personal', age: 28, email: 'freddy@platzi.com', friend: false, uid: 3}
-    ];
-    this.friends = users;
-    this.friend = this.friends.find((record) => {
-      return record.uid === this.friendId;
-    });
-    console.log(this.friend);
-  }
+  constructor(
+    private activatedRoute: ActivatedRoute,
+    private userService: UserService
+    ) {
+      this.friendId = this.activatedRoute.snapshot.params['uid'];
+      console.log('this.friendId :', this.friendId);
+      this.userService.getUserById(this.friendId).valueChanges().subscribe((data: User) => {
+        console.log('data :', data);
+        this.friend = data;
+      }, (error) => {
+        console.log('Error :', error);
+      });
+    }
 
   ngOnInit() {
   }
