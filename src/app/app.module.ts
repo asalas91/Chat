@@ -20,6 +20,7 @@ import { AngularFireDatabaseModule } from '@angular/fire/database';
 import { SocialLoginModule, AuthServiceConfig, FacebookLoginProvider } from 'angularx-social-login';
 import { MatIconModule, MatButtonModule, MatCardModule } from '@angular/material';
 import { AuthenticationGuard } from './services/authentication.guard';
+import { ImageCropperModule } from 'ngx-image-cropper';
 const appRoutes: Routes = [
   {path: '', component: HomeComponent},
   {path: 'home', component: HomeComponent, canActivate: [AuthenticationGuard]},
@@ -58,7 +59,8 @@ export function provideConfig() {
     SocialLoginModule,
     MatIconModule,
     MatButtonModule,
-    MatCardModule
+    MatCardModule,
+    ImageCropperModule
   ],
   providers: [
     {
