@@ -26,7 +26,26 @@
 						<span class="date">Enviado: {{today | date:'shortTime'}}</span>
 					</div> -->
 					<hr>
-					<textarea type="text" class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+          <textarea (keyup.enter)="sendMessage()" [(ngModel)]="textMessage" class="form-control" rows="3"></textarea>
+          <div id="messageToolBar">
+            <div class="item">
+              <img src="/assets/img/icons/regular_smile.gif" class="tool">
+              <i name="caret-down"></i>
+            </div>
+            <div class="item">
+              <img src="/assets/img/icons/wink_smile.gif" class="tool">
+              <i name="caret-down"></i>
+            </div>
+            <div class="item">
+              <img src="/assets/img/icons/zumbido.png" class="tool">
+            </div>
+
+            <a class="btn btn-primary btn-sm marri10" accept="image/*">Enviar</a>
+            <label class="custom-file-upload">
+              <input type="file">
+              <i name="image"></i> Seleccionar Imagen
+            </label>
+          </div>
 				</div>
 			</div>
 		</div>
