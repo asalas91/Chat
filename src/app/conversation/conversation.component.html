@@ -10,14 +10,16 @@
 				<div class="ml-3 mt-3">
 					<b class="">{{friend.nick}} </b>
 					<br>
-					<hr />
-					<div class="conversation">
-						{{friend.nick}} dice:
-						<hr />
-						Lorem ipsum dolor, sit amet consectetur adipisicing elit. Qui culpa ab cumque laborum aut necessitatibus, velit nulla hic facere doloremque accusantium! Quia maiores placeat repellat error? Similique alias dignissimos fugiat?
-						<hr />
-						<span class="date">Enviado: {{today | date:'shortTime'}}</span>
-					</div>
+          <hr />
+          <div id="messageArea">
+            <div class="conversation" *ngFor="let message of conversation">
+              <b>{{getUserNickById(message.sender)}}</b> dice:
+              <hr />
+              {{message.text}}
+              <hr />
+              <span class="date">Enviado: {{today | date:'shortTime'}}</span>
+            </div>
+          </div>
 					<!-- <div class="conversationUser">
 						{{friend.nick}} dice:
 						<hr />
